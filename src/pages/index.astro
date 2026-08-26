@@ -1,0 +1,144 @@
+---
+import '../styles/global.css';
+
+const skills = [
+  'Linux Administration', 'MikroTik', 'Networking', 'CCTV / NVR',
+  'Docker', 'Jenkins', 'GitLab', 'Ansible', 'IoT / GPS Tracking', 'Go + HTMX'
+];
+
+const projects = [
+  {
+    title: 'Network Infrastructure',
+    text: 'Perancangan dan troubleshooting jaringan kabel maupun wireless, VLAN, VPN, routing, integrasi perangkat, dan konektivitas site.',
+    tech: 'MikroTik • VLAN • VPN • OSPF'
+  },
+  {
+    title: 'Linux Server & Automation',
+    text: 'Administrasi server Linux, deployment service, Docker, CI/CD, backup, troubleshooting, dan otomasi pekerjaan berulang.',
+    tech: 'Rocky Linux • Docker • Jenkins • GitLab'
+  },
+  {
+    title: 'Vessel IT Infrastructure',
+    text: 'Setup dan dukungan infrastruktur kapal termasuk server, VSAT, CCTV, modem long-range, jaringan internal, dan integrasi perangkat.',
+    tech: 'Server • VSAT • CCTV • Networking'
+  }
+];
+---
+
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content="Portfolio Salvanus Adrian - IT Support, Networking, Linux, Server, CCTV, dan Infrastructure." />
+    <title>Salvanus Adrian | IT Infrastructure & Network</title>
+  </head>
+  <body>
+    <header class="nav-wrap">
+      <nav class="nav container">
+        <a class="brand" href="#top">SA<span>.</span></a>
+        <div class="nav-links">
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#experience">Experience</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero container">
+        <div class="hero-copy reveal">
+          <p class="eyebrow">IT Infrastructure • Networking • Linux</p>
+          <h1>Salvanus<br /><span>Adrian.</span></h1>
+          <p class="lead">Saya membantu menjaga infrastruktur IT tetap stabil, terhubung, dan siap digunakan—mulai dari jaringan, server Linux, CCTV, hingga integrasi perangkat lapangan.</p>
+          <div class="hero-actions">
+            <a class="btn primary" href="#projects">Lihat Project</a>
+            <a class="btn" href="https://github.com/vanus93" target="_blank" rel="noreferrer">GitHub</a>
+          </div>
+        </div>
+        <div class="terminal reveal" aria-label="Ringkasan kemampuan">
+          <div class="terminal-bar"><span></span><span></span><span></span></div>
+          <pre><code>$ whoami
+salvanus-adrian
+
+$ role
+IT Support & Networking
+
+$ stack
+Linux
+MikroTik
+Docker
+CCTV
+Server
+Infrastructure
+
+$ status
+available_for_growth=true</code></pre>
+        </div>
+      </section>
+
+      <section id="about" class="section container reveal">
+        <p class="section-kicker">01 / About</p>
+        <div class="split">
+          <h2>Menyelesaikan masalah teknis dari lapangan sampai server.</h2>
+          <p>Saya berpengalaman menangani dukungan teknis, administrasi jaringan, perangkat komputer, CCTV, integrasi perangkat baru, IoT, GPS tracking, dan kebutuhan infrastruktur untuk operasional darat maupun kapal. Fokus saya adalah membuat sistem lebih stabil, mudah dipelihara, dan praktis digunakan.</p>
+        </div>
+      </section>
+
+      <section id="skills" class="section container reveal">
+        <p class="section-kicker">02 / Skills</p>
+        <div class="chips">
+          {skills.map((skill) => <span>{skill}</span>)}
+        </div>
+      </section>
+
+      <section id="experience" class="section container reveal">
+        <p class="section-kicker">03 / Experience</p>
+        <div class="timeline">
+          <article>
+            <div><strong>2023 — Sekarang</strong><span>IT Support & Networking</span></div>
+            <p>Manajemen user, troubleshooting jaringan, maintenance komputer dan CCTV, integrasi perangkat, dukungan site, koordinasi vendor, survey instalasi, serta setup infrastruktur kapal.</p>
+          </article>
+          <article>
+            <div><strong>2020 — 2022</strong><span>IT Technical Support</span></div>
+            <p>Dukungan teknis untuk user dan perangkat, troubleshooting sistem, jaringan, instalasi perangkat, serta pendampingan dan training penggunaan aplikasi.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="projects" class="section container reveal">
+        <p class="section-kicker">04 / Selected Projects</p>
+        <div class="project-grid">
+          {projects.map((project, index) => (
+            <article class="project-card">
+              <span class="project-no">0{index + 1}</span>
+              <h3>{project.title}</h3>
+              <p>{project.text}</p>
+              <small>{project.tech}</small>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section id="contact" class="section container contact reveal">
+        <p class="section-kicker">05 / Contact</p>
+        <h2>Mari bangun sistem yang lebih rapi dan stabil.</h2>
+        <p>Untuk melihat project dan source code saya, kunjungi profil GitHub.</p>
+        <a class="btn primary" href="https://github.com/vanus93" target="_blank" rel="noreferrer">github.com/vanus93</a>
+      </section>
+    </main>
+
+    <footer class="container footer">Built with Astro • Hosted on GitHub Pages</footer>
+
+    <script>
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
+      }, { threshold: 0.1 });
+      document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+    </script>
+  </body>
+</html>
